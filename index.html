@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dama Drop — Kendama stock &amp; drop alerts</title>
+<meta name="description" content="Live kendama stock across top brands. Get emailed when a kendama restocks or a new drop lands.">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="#top"><span class="logo-dot"></span>Dama&nbsp;Drop</a>
+    <nav class="nav">
+      <a href="#browse">Browse</a>
+      <a href="#track">Track a link</a>
+      <a href="#alerts">Alerts</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <h1>Know the moment a kendama drops.</h1>
+    <p class="lede">Live stock from the top kendama brands — checked straight from their stores, not scraped guesses. Paste any product link to track it, or get an email when it restocks.</p>
+    <div class="hero-meta">
+      <span id="updated" class="pill muted">loading…</span>
+      <span id="counts" class="pill"></span>
+    </div>
+  </section>
+
+  <section id="browse" class="wrap">
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search kendamas…" autocomplete="off">
+      <select id="category">
+        <option value="kendama">Complete kendamas</option>
+        <option value="all">Everything</option>
+        <option value="parts">Parts &amp; accessories</option>
+      </select>
+      <label class="toggle"><input id="instock" type="checkbox" checked> In stock only</label>
+    </div>
+    <div id="brands" class="brand-pills"></div>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="empty" hidden>No kendamas match. Try clearing the search or unchecking “in stock only”.</p>
+    <div id="kusa" class="kusa"></div>
+  </section>
+
+  <section id="track" class="wrap narrow">
+    <h2>Track a kendama link</h2>
+    <p class="lede small">Paste a product link from any of the brands above. We’ll pull its real price, stock status, and variants — then you can watch it for a restock.</p>
+    <form id="lookup-form" class="row-form">
+      <input id="lookup-url" type="url" placeholder="https://sweetskendamas.com/products/…" required>
+      <button type="submit">Look up</button>
+    </form>
+    <div id="lookup-result"></div>
+  </section>
+
+  <section id="alerts" class="wrap narrow">
+    <h2>Drop alerts</h2>
+    <p class="lede small">One email the moment something happens. No spam, ever — just restocks and new drops you asked about.</p>
+    <form id="alert-form" class="alert-form">
+      <input id="alert-email" type="email" placeholder="you@email.com" required>
+      <div class="alert-choices">
+        <label><input type="radio" name="kind" value="drops" checked> All new drops</label>
+        <label><input type="radio" name="kind" value="brand"> A brand…</label>
+        <label><input type="radio" name="kind" value="product"> A specific kendama…</label>
+      </div>
+      <input id="alert-target" type="text" placeholder="Paste the kendama link here" hidden>
+      <select id="alert-brand" hidden></select>
+      <button type="submit">Notify me</button>
+      <p id="alert-msg" class="form-msg" hidden></p>
+    </form>
+  </section>
+
+  <section class="wrap narrow">
+    <h2>Recent movement</h2>
+    <div id="events" class="events"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>Stock is read directly from each brand’s store. Dama Drop isn’t affiliated with any brand.</p>
+    <p class="tiny">Sweets Kendamas · KROM · Grain Theory · Erratic Kendamas · Kendama USA</p>
+  </div>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

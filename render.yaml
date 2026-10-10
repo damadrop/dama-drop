@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: dama-drop
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: RUN_SCHEDULER
+        value: "1"
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      # Add these two in the Render dashboard (Environment) when you're ready:
+      # - key: OWNER_EMAIL
+      #   value: you@email.com
+      # - key: RESEND_API_KEY
+      #   value: re_xxxx  (free at resend.com — powers email alerts to everyone)
